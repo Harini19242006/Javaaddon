@@ -1,0 +1,82 @@
+
+
+
+Task 1:
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) 
+	{
+		
+		Scanner sc= new Scanner(System.in);
+		System.out.println("enter the size of the array");
+		int n= sc.nextInt();
+		int[] arr  = new int[n];
+		for(int i=0;i<n;i++)
+		{
+		    System.out.print("enter the value:");
+		    arr[i]=sc.nextInt();
+		}
+		
+	    for(int i=n-1;i>=0;i--)
+	    {
+	        System.out.println(arr[i]);
+	    }
+	}
+}
+
+
+Task 2:
+class Main {
+    public static void main(String[] args) 
+	{
+        String str = "Hello everyone";
+        String vowels = "";
+        String consonants = "";
+
+        for (int i = 0; i < str.length(); i++) 
+	{
+            char ch = str.charAt(i);
+            
+       if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+           {
+                vowels += ch;
+            }  
+       else 
+           {
+                consonants += ch;
+            }
+        }
+
+        System.out.println("Vowels: " + vowels);
+        System.out.println("Consonants: " + consonants);
+    }
+} 
+output: Vowels: eoeeone
+Consonants: Hllvry
+
+
+Task 3:
+REVERSE THE STRING
+
+
+public class Main
+{
+	public static void main(String[] args) 
+	{
+		
+		String str1 = " I LOVE ZOHO";
+		String str[]=str1.split(" ");
+		for( int i=str.length-1;i>0;i--)
+		{
+		    
+		    System.out.print(str[i]+ " ");
+		}
+	    
+	}
+}
+Output:
+
+ZOHO LOVE I
+
+

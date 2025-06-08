@@ -1,0 +1,131 @@
+public class Main 
+{  
+    public static void main(String[] args) 
+{  
+        int age=16;  
+
+        if (age>16) 
+{  
+            System.out.println("valid");  
+        
+}  
+        else if(age==16)
+{  
+            System.out.println("age is 16");  
+
+ }  
+        else
+{  
+            System.out.println("invalid");  
+   }  
+
+
+           }  
+}  
+
+
+IF AND ELSE-IF:-
+  
+public class Main
+{
+    public static void main(String[] args) 
+  {  
+        int age=28;  
+        String gender="male";  
+        if (age>=18 && gender=="female") 
+        {  
+            System.out.println("Eligible for female");  
+        }  
+        else if(age>=23 && gender=="male")
+	{  
+            System.out.println("eligible for male");  
+
+        }  
+        else
+	{  
+            System.out.println("not eligible ");  
+        }  
+
+
+     }  
+}  
+  
+
+ELSE-IF AND SWITCH :  
+public class Main 
+{  
+    public static void main(String[] args) 
+{  
+        int age=44;  
+        String gender="male";  
+        if (age<18 || gender=="female") 
+     {  
+            System.out.println("ticket is free");  
+        }  
+
+        else
+      {  
+            int km=5;  
+            switch(km)
+          {  
+                case 5:
+		{  
+                    System.out.println(" rupees 50");  
+                    break;
+		}  
+                 case 10:
+		{  
+                    System.out.println("rupees 100");  
+                    break;
+		}  
+                default:
+		{  
+                    System.out.println( "inavaild");  
+                }  
+            }  
+        }  
+
+
+           }  
+}  
+
+ WHILE LOOP & DO WHILE LOOP :-
+public class Main
+{
+  public static void main(String[] args) 
+
+{
+ 
+int i = 0;  
+do {  
+  System.out.println(i);  
+  i++;  
+}  
+while (i < 5);
+}
+}  
+
+
+
+int i = 0;  
+while (i < 5) {  
+  System.out.println(i);  
+  i++;  
+}  
+FUNCTIONS:-
+  
+public class Main 
+{  
+    static  int myMethod(int a, int b) 
+  {  
+    return a+b;  
+  }  
+
+  public static void main(String[] args) 
+{  
+    Main mi=new Main();  
+     myMethod(5, 3);  
+    System.out.println( myMethod(10, 17));  
+  }  
+}  
+Output : 27

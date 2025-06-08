@@ -1,0 +1,52 @@
+Task 1:
+
+
+import java.util.Scanner; 
+public class Main 
+{ 
+
+
+    static void checkLeap(int year) 
+{ 
+        if (year % 4 == 0 )  
+        { 
+            System.out.println(year + " is a leap year"); 
+        } else 
+	{ 
+            System.out.println(year + " is not a leap year"); 
+        } 
+    } 
+
+    public static void main(String[] args) 
+{ 
+        Scanner in=new Scanner(System.in);
+	{ 
+            System.out.print("enter the number:"); 
+        } 
+        int year = in.nextInt(); 
+       checkLeap(year);   
+    } 
+} 
+
+output: 
+            enter the number:200e4 
+ 
+2004 is a leap year
+
+
+Task 2:
+
+public class Main 
+{ 
+    public static void main(String[] args) 
+	{ 
+        System.out.println("Even numbers from 1 to 100:"); 
+        for (int i = 1; i <= 100; i++) 
+	{ 
+            if (i % 2 == 0) 
+	{ 
+                System.out.println(i + " "); 
+         } 
+        } 
+    } 
+} 
