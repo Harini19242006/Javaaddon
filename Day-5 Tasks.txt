@@ -1,0 +1,55 @@
+TASK-1
+ARRAYLIST OF STUDENTS AND DISPLAY USING AN ITERATOR:
+
+import java.util.*;
+public class Students {
+	public static void main(String[] args) {
+	String[] arr = new String[5];
+	arr[0] ="10";
+	ArrayList<String> a = new ArrayList<>(10);
+	a.add("sami");
+	a.add("abi");
+	a.add(“thilo");
+	System.out.println(a);
+	}}
+O/P:[sami,abi,thilo]
+
+TASK-2
+HASH SET
+
+import java.util.*;
+public class EmailSet
+{
+    public static void main(String[] args) 
+    {
+       HashSet<String> emailSet = new HashSet<>();
+        emailSet.add("rani123@gmai.com"\n);
+        emailSet.add("sheela@example.com");
+        emailSet.add("abi@example.com");
+        System.out.println(emailSet);
+      // for (String email : emailSet)
+        //{
+         //   System.out.println(email);
+       // }
+    }
+}
+O/P:[rani123@gmai.com, abi@example.com, sheela@example.com].
+
+
+TASK-3
+HASH MAP
+
+import java.util.*;
+public class StudentMarks{
+public static void main(String[] args)
+{
+    HashMap<String,Integer> StudentMarks = new HashMap<>();
+    StudentMarks.put("Thilo" , 80);
+    StudentMarks.put("Abi" , 90);
+    StudentMarks.put("Sami" , 84);
+    int Total = StudentMarks.get("Thilo") + StudentMarks.get("Abi") + StudentMarks.get("Sami");
+    int Average = Total/3;
+    System.out.println("Average StudentMarks = " +Average);
+}
+}
+O/P:Average StudentMarks = 84

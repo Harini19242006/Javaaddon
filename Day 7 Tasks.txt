@@ -1,0 +1,197 @@
+TASK-1,2,3
+STUDENTS AND COURSE TABLE AND INSERTS 5 RECORDS AND UPDATE COURSEFEE:
+
+MariaDB [mysql]> create table Student(
+    -> Name varchar(10),
+    -> Id int,
+    -> DOB date,
+    -> Email varchar(30));
+Query OK, 0 rows affected (0.026 sec)
+
+MariaDB [mysql]> desc Student;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| Name  | varchar(10) | YES  |     | NULL    |       |
+| Id    | int(11)     | YES  |     | NULL    |       |
+| DOB   | date        | YES  |     | NULL    |       |
+| Email | varchar(30) | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+4 rows in set (0.037 sec)
+
+MariaDB [mysql]> insert into Student values('jana',01,'2010-07-07','jana07@gmail.com');
+Query OK, 1 row affected (0.016 sec)
+
+MariaDB [mysql]> insert into Student values('ishu',02,'2012-06-25','ishu25@gmail.com');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [mysql]> insert into Student values('megala',03,'2004-10-16','megala16@gmail.com');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [mysql]> insert into Student values('jothi',04,'2006-05-24','harini24@gmail.com');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [mysql]> insert into Student values('jothi',05,'2006-05-14','jothi14@gmail.com');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [mysql]> select * from Student;
++--------+------+------------+--------------------+
+| Name   | Id   | DOB        | Email              |
++--------+------+------------+--------------------+
+| jana   |    1 | 2010-07-07 | jana07@gmail.com   |
+| ishu   |    2 | 2012-06-25 | ishu25@gmail.com   |
+| megala |    3 | 2004-10-16 | megala16@gmail.com |
+| jothi  |    4 | 2006-05-14 | jothi14@gmail.com  |
+| harini |    5 | 2006-05-24 | harini24@gmail.com |
++--------+------+------------+--------------------+
+5 rows in set (0.001 sec)
+
+MariaDB [mysql]> create table Course(
+    -> courseid int,
+    -> coursename varchar(50),
+    -> credits int,
+    -> onlinecourses varchar(50),
+    -> instructorname varchar(50));
+Query OK, 0 rows affected (0.057 sec)
+
+MariaDB [mysql]> delete from Course where courseid=101;
+Query OK, 3 rows affected (0.015 sec)
+
+MariaDB [mysql]> insert into Course values(101,'maths',5,'science','deepa');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [mysql]> insert into Course values(102,'english',4,'social','raju');
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [mysql]> insert into Course values(103,'tamil',3,'hindi','selvi');
+Query OK, 1 row affected (0.015 sec)
+
+MariaDB [mysql]> insert into Course values(104,'computer',5,'french','babu');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [mysql]> insert into Course values(104,'accounts',5,'economics','sakthi');
+Query OK, 1 row affected (0.014 sec)
+
+MariaDB [mysql]> select * from Course;
++----------+------------+---------+---------------+----------------+
+| courseid | coursename | credits | onlinecourses | instructorname |
++----------+------------+---------+---------------+----------------+
+|      101 | maths      |       5 | science       | deepa          |
+|      102 | english    |       4 | social        | raju           |
+|      103 | tamil      |       3 | hindi         | selvi          |
+|      104 | computer   |       5 | french        | babu           |
+|      104 | accounts   |       5 | economics     | sakthi         |
++----------+------------+---------+---------------+----------------+
+5 rows in set (0.001 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+MariaDB [mysql]> alter table Course add coursefee int;
+Query OK, 0 rows affected (0.022 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [mysql]> select * from Course;
++----------+------------+---------+---------------+----------------+-----------+
+| courseid | coursename | credits | onlinecourses | instructorname | coursefee |
++----------+------------+---------+---------------+----------------+-----------+
+|      101 | maths      |       5 | science       | deepa          |      NULL |
+|      102 | english    |       4 | social        | raju           |      NULL |
+|      103 | tamil      |       3 | hindi         | selvi          |      NULL |
+|      104 | computer   |       5 | french        | babu           |      NULL |
+|      104 | accounts   |       5 | economics     | sakthi         |      NULL |
++----------+------------+---------+---------------+----------------+-----------+
+5 rows in set (0.001 sec)
+
+MariaDB [mysql]> update Course set coursefee=1000 where courseid=101;
+Query OK, 1 row affected (0.015 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [mysql]> update Course set coursefee=2000 where courseid=102;
+Query OK, 1 row affected (0.015 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [mysql]> update Course set coursefee=3000 where courseid=103;
+Query OK, 1 row affected (0.016 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [mysql]> update Course set coursefee=4000 where courseid=104;
+Query OK, 2 rows affected (0.015 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [mysql]> update Course set coursefee=5000 where courseid=105;
+Query OK, 0 rows affected (0.001 sec)
+Rows matched: 0  Changed: 0  Warnings: 0
+
+MariaDB [mysql]> select * from Course;
++----------+------------+---------+---------------+----------------+-----------+
+| courseid | coursename | credits | onlinecourses | instructorname | coursefee |
++----------+------------+---------+---------------+----------------+-----------+
+|      101 | maths      |       5 | science       | deepa          |      1000 |
+|      102 | english    |       4 | social        | raju           |      2000 |
+|      103 | tamil      |       3 | hindi         | selvi          |      3000 |
+|      104 | computer   |       5 | french        | babu           |      4000 |
+|      104 | accounts   |       5 | economics     | sakthi         |      4000 |
++----------+------------+---------+---------------+----------------+-----------+
+5 rows in set (0.001 sec)
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+MAIN PROGRAM:
+LIBRARY DB:
+MariaDB [mysql]> create table books(
+    -> title varchar(50),
+    -> author varchar(50),
+    -> availablebooks varchar(60));
+Query OK, 0 rows affected (0.022 sec)
+
+MariaDB [mysql]> insert into books values(1,'HarryPotter','J.K.Rowling','come and visit shop'),(2,'Beloved','Toni Morrison','come and visit shop'),(3,'EightLives','Rajmohan Gandhi','come and visit shop');
+Query OK, 1 row affected (0.015 sec)
+
+MariaDB [mysql]> select * from books;
++-------------+-----------------+---------------------+
+| title       | author          | availablebooks      |
++-------------+-----------------+---------------------+
+| HarryPotter | J.K.Rowling     | come and visit shop |
+| Beloved     | Toni Morrison   | come and visit shop |
+| EightLives  | Rajmohan Gandhi | come and visit shop |
++-------------+-----------------+---------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [mysql]> create table persons(
+    -> personid int,
+    -> name varchar(30),
+    -> email varchar(30));
+Query OK, 0 rows affected (0.014 sec)
+
+MariaDB [mysql]> insert into persons values(100,'thilo','thilo26@gmail.com'),(123,'abi','abi30@gmail.com'),(200,'sami','sami02@gmail.com');
+Query OK, 3 rows affected (0.016 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [mysql]> select * from persons;
++----------+-------+-------------------+
+| personid | name  | email             |
++----------+-------+-------------------+
+|      100 | thilo | thilo26@gmail.com |
+|      123 | abi   | abi30@gmail.com   |
+|      200 | sami  | sami02@gmail.com  |
++----------+-------+-------------------+
+3 rows in set (0.001 sec)
+
+MariaDB [mysql]> create table borrow(
+    -> personid int,
+    -> bookid int,
+    -> borrowdate date,
+    -> returndate date);
+Query OK, 0 rows affected (0.026 sec)
+
+MariaDB [mysql]> insert into borrow values(100,1001,'2025-06-08','2025-07-10'),(200,1032,'2025-05-25','2025-10-02'),(430,1542,'2025-02-26','2025-07-20');
+Query OK, 3 rows affected (0.016 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+MariaDB [mysql]> select * from borrow;
++----------+--------+------------+------------+
+| personid | bookid | borrowdate | returndate |
++----------+--------+------------+------------+
+|      100 |   1001 | 2025-06-08 | 2025-07-10 |
+|      200 |   1032 | 2025-05-25 | 2025-10-02 |
+|      430 |   1542 | 2025-02-26 | 2025-07-20 |
++----------+--------+------------+------------+
+3 rows in set (0.001 sec)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------

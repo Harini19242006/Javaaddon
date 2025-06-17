@@ -1,0 +1,139 @@
+TASKS-3
+METHOD OVERLOADING:
+
+class Main{
+    int sum(int a, int b) {
+        return a + b;
+}
+    double sum(double a, double b) {
+return a + b;
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+Main= new Main();
+         int intResult = Main.sum(1,2);
+        System.out.println("Sum of integers: " + intResult);
+          double doubleResult = Main.sum(1.5, 2.8);
+        System.out.println("Sum of doubles: " + doubleResult);}}
+
+TASK:1
+DEPOSIT AND WITHDRAW METHODS:
+
+import java.util.Scanner;
+    class account{
+    private String acc;
+    private int balance;
+    
+    account(String acc, int balance)
+    {
+        this.acc=acc;
+        this.balance=balance;
+        
+    }
+    public String getacc()
+    {
+        return acc;
+    }
+    public int getbalance()
+    {
+        return balance;
+    }
+    public void setacc(String acc )
+    {
+        this.acc =acc ;
+    }
+    public void setbalance(int amount)
+    {    if(balance>0)
+        {
+        
+        balance+=amount;
+       System.out.println("deposit amount: "+amount);
+       System.out.println("totalbalance : "+balance);
+        }
+        
+    }
+    public void setwithdraw(int withdraw )
+    {
+        balance= balance-withdraw;
+        System.out.println("current balance:"+balance);
+        System.out.println("withdrawn amount: "+withdraw);
+    }
+}
+public class Main
+{
+	public static void main(String[] args) 
+	{
+	    account a=new account ("sathi",10000);
+	    System.out.println("account name:"+a.getacc());
+	    System.out.println("account balance"+a.getbalance());
+	    a.setacc("parvati");
+	    System.out.println("updated name :"+a.getacc());
+	   a.setbalance(1000);
+	   a.setwithdraw(20);}
+}
+ TASK-2
+SALARY CALCULATION:
+
+import java.util.Scanner;
+
+public class EmployeeSalaryCalculator {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("Enter Basic Salary of the Employee:");
+        double basic = scanner.nextDouble();
+
+        double hra = 0.10 * basic;  // 10% of basic
+        double da = 0.08 * basic;   // 8% of basic
+        double grossSalary = basic + hra + da;
+
+        double tax = 0.05 * grossSalary; // 5% tax on gross salary
+        double netSalary = grossSalary - tax;
+
+        System.out.println("Employee Salary Breakdown:");
+        System.out.println("Basic: " + basic);
+        System.out.println("HRA: " + hra);
+        System.out.println("DA: " + da);
+        System.out.println("Gross Salary: " + grossSalary);
+        System.out.println("Tax Deduction: " + tax);
+        System.out.println("Net Salary: " + netSalary);
+    }
+}
+
+MAIN PROGRAM:
+STUDENT MANAGEMENT SYSTEM:
+
+import java.util.*;   
+public class Main 
+{ 
+    
+    public static void main(String args[]) 
+    {   
+        Scanner sc = new Scanner(System.in); 
+        System.out.println("Enter the student name");
+        String Name= sc.next();
+        int n;     
+        System.out.println("Enter the total subjects ");
+        n=sc.nextInt();
+        int arr[] = new int[n]; 
+        System.out.println("Enter the marks secured in each subject ");
+        for(int i=0;i<n;i++)   
+        {
+            arr[i]=sc.nextInt();
+        }
+        
+        int total=0;
+        for(int i=0;i<n;i++)
+        {
+            total=total+arr[i];
+        }
+        System.out.println("Student Name:"+Name);
+        System.out.println("The total marks obtained is "+total);
+        float percentage; 
+        percentage = (total / (float)n);
+        System.out.println( "Total Percentage : " + percentage + "%");                         
+    }   
+}
+

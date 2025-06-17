@@ -1,0 +1,132 @@
+TASK-1
+DIVIDE BY ZERO EXCEPTION:
+
+import java.io.*;
+class Exception{
+
+ public static void main (String[] args){
+     int a = 5;
+     int b = 0;
+      
+      try{
+          System.out.println(a/b);
+      }
+      catch(ArithmeticException e)
+      {
+          System.out.println("Error:cannot divide by zero");     }
+ }
+}
+O/P:Error:cannot divide by zero
+
+TASK-3:
+STRINGS TO FILE LINE BY LINE:
+import java.io.*;
+
+class String{
+    public static void main(String[] args) 
+    {
+        try 
+        {
+            FileWriter fw = new FileWriter("output.txt");
+            fw.write("Hello");
+            fw.write("Every");
+            fw.write("One");
+            fw.close();
+            System.out.println("Data is written to the output
+file.");
+        } catch (Exception e) 
+        {
+            System.out.println("");
+        }
+    }
+}O/P:HelloEveryOne
+
+TASK-2:
+READ FILE AND DISPLAY CONTENT:
+
+import java.io.*;
+
+public class FileReaderExample 
+{
+    public static void main(String[] args) 
+    {
+        try
+        {
+            FileReader fr = new FileReader("example.txt");
+            int data;
+            while ((data = fr.read()) != -1) 
+            {
+            System.out.print((char) data); 
+            }
+
+            fr.close(); 
+        } catch (Exception e)
+        {
+            System.out.println("");
+        }
+    }
+}
+
+O/P:Hello World //the output is come into the example.txt what we give is.
+
+MAIN PROGRAM:
+
+import java.io.*;
+import java.util.*;
+public class StudentClass 
+{
+	       public static void main(String[] args) {
+	        String inputFile;
+	        String outputFile; 
+
+	        try {
+	            List<Integer> marks = readMarksFromFile(inputFile);
+	            double average = calculateAverage(marks);
+	            writeResultToFile(outputFile, average);
+	            System.out.println("Calculation completed. Results written to " + outputFile);
+
+	        } catch (IOException e) {
+	            System.err.println("An error occurred: " + e.getMessage());
+	        }
+	    }
+
+	    public static List<Integer> readMarksFromFile(String filename) throws IOException {
+	        List<Integer> marks = new ArrayList<>();
+	        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
+	            String line;
+	            while ((line = reader.readLine()) != null) {
+	                try {
+	                    int mark = Integer.parseInt(line.trim());
+	                    marks.add(mark);
+	                } catch (NumberFormatException e) {
+	                    System.err.println("Invalid mark format: " + line);
+	                }
+	            }
+	        }
+	        return marks;
+	    }
+
+	    public static double calculateAverage(List<Integer> marks) {
+	        if (marks.isEmpty()) {
+	            return 0.0;
+	        }
+	        int sum = 0;
+	        for (int mark : marks) {
+	            sum += mark;
+	        }
+	        return sum;
+	    }
+
+	    public static void writeResultToFile(String filename, double average) throws IOException {
+	        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+	            writer.write(" total mark: " + average);
+	        }
+	    }
+	}
+
+
+
+
+
+
+

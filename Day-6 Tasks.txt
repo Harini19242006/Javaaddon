@@ -1,0 +1,94 @@
+TASK-1
+THREAD CLASS:
+
+class MyThread extends Thread
+{
+    public void run()
+    {
+        for (int i = 1; i <= 10; i++) 
+        {
+            System.out.println(i);
+        }
+    }
+}
+public class Main
+{
+    public static void main(String[] args)
+    {
+        // Create object of MyThread
+        MyThread a = new MyThread();
+        // Start the thread
+        a.start();
+    }
+O/P:
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+
+TASK-2
+MULTIPLE THREADS:
+
+public class MultipleThreads 
+{
+	    public static void main(String[] args) {
+	        MessagePrinter printer1 = new MessagePrinter("Hello from Thread 1");
+	        MessagePrinter printer2 = new MessagePrinter("Greetings from Thread 2");
+
+	        Thread thread1 = new Thread(printer1);
+	        Thread thread2 = new Thread(printer2);
+
+	        thread1.start();
+	        thread2.start();
+	    }
+	}
+
+class MessagePrinter implements Runnable {
+    private String message;
+
+    public MessagePrinter(String message) {
+        this.message = message;
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Thread " + Thread.currentThread().getName() + ": " + message);
+    }
+}
+
+TASK-3
+SLEEP() & JOIN() THREADS
+
+public class SleepDemonstrateClass 
+{
+	    public static void main(String[] args) throws InterruptedException {
+	        // Create a new thread
+	        Thread thread1 = new Thread(() -> 
+	        {
+	            try {
+	                System.out.println("Thread 1: Starting...");
+	                Thread.sleep(2000); // Pauses execution for 2 seconds
+	                System.out.println("Thread 1: Finished sleeping.");
+	            } catch (InterruptedException e) {
+	                e.printStackTrace();
+	            }
+	        });
+
+	        // Start the new thread
+	        thread1.start();
+
+	        // Wait for thread1 to finish
+	        System.out.println("Main thread: Waiting for thread1...");
+	        thread1.join(); // Waits for thread1 to complete its execution
+	        System.out.println("Main thread: Thread1 finished.  Continuing...");
+
+	        // Do more work after thread1 is finished
+	        System.out.println("Main thread: Work complete.");
+	    }
+	}
