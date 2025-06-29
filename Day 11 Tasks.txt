@@ -1,0 +1,112 @@
+mysql> create database day11;
+Query OK, 1 row affected (0.31 sec)
+
+mysql> CREATE TABLE Students (
+    ->     student_id INT PRIMARY KEY,
+    ->     name VARCHAR(100)
+    -> );
+mysql> CREATE TABLE Marks (
+    ->     mark_id INT PRIMARY KEY,
+    ->     student_id INT,
+    ->     subject VARCHAR(50),
+    ->     marks INT,
+    ->     FOREIGN KEY (student_id) REFERENCES Students(student_id)
+    -> );
+ERROR 1046 (3D000): No database selected
+mysql> use day11;
+Database changed
+mysql> create table stud(
+    ->     student_id INT PRIMARY KEY,
+    ->     name VARCHAR(100));
+Query OK, 0 rows affected (1.13 sec)
+mysql> create table marks(
+    ->     mark_id INT PRIMARY KEY,
+    ->     student_id INT,
+    ->     subject VARCHAR(50),
+    ->     marks INT,
+    ->     FOREIGN KEY (student_id) REFERENCES Stud(student_id));
+Query OK, 0 rows affected (0.82 sec)
+
+mysql> INSERT INTO stud VALUES (1, 'Abhinav'),
+    -> (2, 'anu'), (3, 'nikash');
+Query OK, 3 rows affected (0.15 sec)
+Records: 3  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO Marks VALUES
+    -> (101, 1, 'Math', 88),
+    -> (102, 1, 'Science', 92),
+    -> (103, 2, 'Math', 76),
+    -> (104, 2, 'Science', 84),
+    -> (105, 3, 'Math', 91);
+Query OK, 5 rows affected (0.04 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> SELECT stud.student_id, stud.name, Marks.subject, Marks.marks FROM stud JOIN Marks ON stud.student_id = Marks.student_id;
++------------+---------+---------+-------+
+| student_id | name    | subject | marks |
++------------+---------+---------+-------+
+|          1 | Abi | Math    |    88 |
+|          1 | thilo | Science |    92 |
+|          2 | sami   | Math    |    76 |
+|          2 | jana    | Science |    84 |
+|          3 | ishu  | Math    |    91 |
++------------+---------+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql>
+Main task
++------------+---------+---------+-------+
+| student_id | name    | subject | marks |
++------------+---------+---------+-------+
+|          1 | Abi  | Math    |    77 |
+|          1 | thilo  | Science |    92 |
+|          2 | sami | Math    |    76 |
+|          2 | jana | Science |    84 |
+|          3 | ishu    | Math    |    91 |
++------------+---------+---------+-------+
+5 rows in set (0.00 sec)
+
+  CREATE TABLE Courses (
+    ->     course_id INT PRIMARY KEY,
+    ->     course_name VARCHAR(100)
+    -> );
+Query OK, 0 rows affected (0.47 sec)
+
+mysql>
+mysql> -- Add course_id to Marks table
+mysql> ALTER TABLE Marks ADD course_id INT;
+Query OK, 0 rows affected (0.80 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE Marks ADD FOREIGN KEY (course_id) REFERENCES Courses(course_id);
+Query OK, 5 rows affected (1.91 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+mysql> INSERT INTO Courses VALUES
+    -> (1, 'Mathematics'),
+    -> (2, 'Science');
+Query OK, 2 rows affected (0.07 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> UPDATE Marks SET course_id = 1 WHERE subject = 'Math';
+Query OK, 3 rows affected (0.09 sec)
+Rows matched: 3  Changed: 3  Warnings: 0
+
+mysql> UPDATE Marks SET course_id = 2 WHERE subject = 'Science';
+Query OK, 2 rows affected (0.09 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+mysql> SELECT s.name, c.course_name, m.marks
+    -> FROM stud s JOIN Marks m ON s.student_id = m.student_id
+    -> JOIN Courses c ON m.course_id = c.course_id
+    -> WHERE m.marks > 85;
++---------+-------------+-------+
+| name    | course_name | marks |
++---------+-------------+-------+
+|abi       Mathematics |    77|
+|thilo      | Mathematics |    91 |
+|ishu  | Science     |    92 |
++---------+-------------+-------+
+3 rows in set (0.06 sec)
+
+
